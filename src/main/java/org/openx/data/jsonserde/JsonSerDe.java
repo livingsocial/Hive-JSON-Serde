@@ -22,6 +22,7 @@ import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.hive.serde.Constants;
 import org.apache.hadoop.hive.serde2.SerDe;
 import org.apache.hadoop.hive.serde2.SerDeException;
+import org.apache.hadoop.hive.serde2.SerDeStats;
 import org.apache.hadoop.hive.serde2.objectinspector.ObjectInspector;
 import org.apache.hadoop.hive.serde2.objectinspector.StructObjectInspector;
 import org.apache.hadoop.hive.serde2.typeinfo.TypeInfo;
@@ -379,6 +380,12 @@ public class JsonSerDe implements SerDe {
         }  else {
             throw new SerDeException(msg);
         }
-    } 
+    }
+
+		@Override
+		public SerDeStats getSerDeStats() {
+			// Not supported
+			return null;
+		} 
     
 }
